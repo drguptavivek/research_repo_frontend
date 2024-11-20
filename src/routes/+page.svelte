@@ -1,42 +1,30 @@
 <script>
-	let name = 'Svelte';
-    let count = $state(0);
-    let numbers = $state([1, 2, 3, 4]);
-
-
-    let total = $derived(numbers.reduce((t, n) => t + n, 0));
-
-
-function increment() {
-    count += 1;
-}
-
-function addNumber() {
-    numbers.push(numbers.length + 1);
-}
-
-
+  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, GradientButton  } from 'flowbite-svelte';
 </script>
 
-<h1 class="text-3xl font-bold underline">Hello {name.toUpperCase()}!</h1>
 
+<Navbar>
+  <NavBrand href="/">
+    <img src=/aiims_logo_currentcolor.svg class="me-2 h-8  md:h-12" alt="AIIMS Logo" />
+    <span class="whitespace-nowrap text-base md:text-xl font-semibold dark:text-white">Research Publications</span>
+  </NavBrand>
+  <div class="flex md:order-2">
+    <GradientButton  size="sm" color="teal">Login</GradientButton >
+    <NavHamburger />
+  </div>
+  <NavUl class="order-1">
+    <NavLi href="/">Home</NavLi>
+    <NavLi href="/about">About</NavLi>
+    <NavLi href="/docs/components/navbar">Navbar</NavLi>
+    <NavLi href="/pricing">Pricing</NavLi>
+    <NavLi href="/contact">Contact</NavLi>
+  </NavUl>
+</Navbar>
 
-<button class="bg-slate-400 m-2 p-2 border-purple-400 border-2" onclick={increment}>
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
-
-<p>{numbers.join(' + ')} = ...</p>
-
-<button onclick={addNumber}>
-	Add a number
-</button>
-
-<p>Total = {numbers.join(' + ')} = {total}</p>
-
+<h1 class="text-3xl font-bold underline">Hello!</h1>
 
 <style lang="postcss">
     :global(html) {
-      background-color: theme(colors.gray.500);
+      background-color: theme(colors.gray.200);
     }
-  </style>
+</style>
