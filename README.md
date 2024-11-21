@@ -47,9 +47,12 @@ git branch -a # List all branches and remotes
 # Make changes to code
 git add .
 git commit  -m "Changed README"
+git status
 # Push local branch code to remote
 git push -u origin desktop 
-# merge desktop with main on GitHub; Delete remote  desktop on GitHub
+# merge desktop with main on GitHub
+# Delete remote  desktop on GitHub
+
 
 
 
