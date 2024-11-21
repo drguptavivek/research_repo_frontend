@@ -12,6 +12,7 @@ On Github, create pull request, merge changes and delete dekstop branch
 Again on desktop, detach the desktop branch, checkout main and pull updates from server.
 
 ```bash
+# FIRST COMMITS
 cd c:/workspace
 cd RESPUBDIR
 git clone https://github.com/drguptavivek/research_repo_frontend.git
@@ -28,6 +29,26 @@ git commit  -m "About to Git push a local branch desktop upstream to a remote Gi
 # Push local branch code to remote desktop branch
 git push -u origin desktop 
 # Go to https://github.com/drguptavivek/research_repo_frontend
+# merge desktop with main on GitHub
+# Delete remote  desktop on GitHub
+# remote main branch has all latest code
+
+#### RINSE AND REPEAT
+# Back on a computer
+git remote show origin
+git checkout main # Latest code from server
+git pull
+git branch -D desktop # Detach / delete preexisting local branch desktop
+git push origin --delete desktop # Detach / delete preexisting REMOTE branch desktop
+
+git branch desktop # Recreate a local  branch
+git checkout desktop # Start working with t lcoal branch
+git branch -a # List all branches and remotes
+# Make changes to code
+git add .
+git commit  -m "Changed README"
+# Push local branch code to remote
+git push -u origin desktop 
 # merge desktop with main on GitHub; Delete remote  desktop on GitHub
 
 
@@ -67,38 +88,5 @@ git push -u origin macbook
 # remote:      https://github.com/drguptavivek/research_repo_frontend.git/pull/new/macbook
 # merge on GitHub; Delete remote  macbook on GitHub
 
-
-
-
-# Back on Laptop
-git remote show origin
-git checkout main
-git pull
-git branch --d macbook
-git push origin --delete macbook
-git branch macbook
-git checkout macbook
-git branch -a
-git add 
-git commit  -m "About to Git push a local branch upstream to a remote GitHub repo."
-# Push local branch code to remote
-git push -u origin macbook
-# merge on GitHub; Delete remote  macbook on GitHub
-
-# Back on Desktop
-git remote show origin
-git checkout main
-git pull
-git branch --d desktop # Detach / delete preexisting local branch desktop
-git push origin --delete desktop # Detach / delete preexisting REMOTE branch desktop
-
-git branch desktop
-git checkout desktop
-git branch -a
-git add 
-git commit  -m "About to Git push a local branch desktop upstream to a remote GitHub repo at desktop."
-# Push local branch code to remote
-git push -u origin desktop 
-# merge desktop with main on GitHub; Delete remote  desktop on GitHub
 
 ```
