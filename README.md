@@ -45,8 +45,10 @@ git branch desktop # Recreate a local  branch
 git checkout desktop # Start working with t lcoal branch
 git branch -a # List all branches and remotes
 # Make changes to code
+
+git status
 git add .
-git commit  -m "Changed README"
+git commit  -m "Changed dark mode settings - Tailwind use slectpor strategy and sun icon on footer. Classes on BODY tag and base styles"
 git status
 # Push local branch code to remote
 git push -u origin desktop 
