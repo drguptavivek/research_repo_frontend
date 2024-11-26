@@ -48,7 +48,7 @@ git branch -a # List all branches and remotes
 
 git status
 git add .
-git commit  -m "Changed dar mode settins"
+git commit  -m "Changed dark mode settings - Tailwind use slectpor strategy and sun icon on footer. Classes on BODY tag and base styles"
 git status
 # Push local branch code to remote
 git push -u origin desktop 
