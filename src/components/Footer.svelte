@@ -1,24 +1,42 @@
-
 <script lang="ts">
- //   import Darkmodetoggle from "./Darkmodetoggle.svelte";
     import Sun from "./Sun.svelte";
-	import { THEMES } from "$lib/config";
-
-    function set_theme(theme: string) {
-		if (!Object.values(THEMES).includes(theme)) return;
-		localStorage.setItem("theme", theme);
-		document.body.setAttribute("data-theme", theme);
-        document.body.classList.toggle("dark");
-	}
 
 	function toggle_theme(): void {
-		let current_theme = document.body.getAttribute("data-theme");
-		const theme =
-			current_theme === THEMES.LIGHT
-				? THEMES.DARK
-				: THEMES.LIGHT;
-		set_theme(theme);
-	}
+        let saved_theme = localStorage.getItem("theme");
+        let prefersDarkMode  = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (saved_theme ==null) {
+                console.log("No saved theme. Now set a theme opposite to system prefernce");
+                let themeToSet = prefersDarkMode ? "light" : "dark" ;
+                console.log("set theme to ", themeToSet);
+                localStorage.setItem("theme", themeToSet);
+                if (themeToSet=="dark") {
+                    document.body.classList.add(themeToSet);
+                    console.log("Added Class  ", themeToSet);
+                }
+                else {
+                    document.body.classList.remove("dark");
+                    console.log("Removed Class  ", "dark");
+                }
+            }
+
+            else  {
+                let themeToSet = saved_theme=="dark" ? "light" : "dark" ;
+                console.log("saved theme -- ", saved_theme, "--Now set a theme opposite to saved theme preference--", themeToSet);
+                localStorage.setItem("theme", themeToSet);
+
+                if (themeToSet=="dark") {
+                    document.body.classList.add(themeToSet);
+                    console.log("Added Class  ", themeToSet);
+                }
+                else {
+                    document.body.classList.remove("dark");
+                    console.log("Removed Class  ", "Dark");
+                }
+            } 
+ 
+        }
+
 
 </script>
 
