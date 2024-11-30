@@ -9,7 +9,8 @@
 
 <Navbar />
 
+<div class="container  mx-auto h-100">
 {@render children()}
-
+</div>
 
 <Footer />
